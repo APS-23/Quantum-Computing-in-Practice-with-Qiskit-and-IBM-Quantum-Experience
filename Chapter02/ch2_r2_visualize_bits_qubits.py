@@ -12,7 +12,10 @@ import cmath
 from math import pi, sin, cos
 from qiskit.visualization import plot_bloch_vector
 
-from IPython.core.display import display
+from IPython.display import display
+
+import matplotlib
+matplotlib.use("Qt5Agg")
 
 np.set_printoptions(precision=3)
 
@@ -23,8 +26,8 @@ print("----------------------------------------------------")
 angles={"theta": pi/2, "phi":0}
 
 # Self-defined qubit
-#angles["theta"]=float(input("Theta:\n"))
-#angles["phi"]=float(input("Phi:\n"))
+angles["theta"]=float(input("Theta:\n"))
+angles["phi"]=float(input("Phi:\n"))
 
 # Set up the bit and qubit vectors
 bits = {"bit = 0":{"theta": 0, "phi":0}, "bit = 1":{"theta": pi, "phi":0}, "|0\u27E9":{"theta": 0, "phi":0}, "|1\u27E9":{"theta": pi, "phi":0}, "a|0\u27E9+b|1\u27E9":angles}
