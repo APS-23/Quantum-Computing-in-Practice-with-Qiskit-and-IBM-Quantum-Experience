@@ -9,17 +9,20 @@ Created Nov 2020
 from qiskit import QuantumCircuit, Aer, execute
 from qiskit.visualization import plot_histogram
 
-from IPython.core.display import display
+from IPython.display import display
+
+import matplotlib
+matplotlib.use("Qt5Agg")
 
 print("Ch 4: Upside down quantum coin toss")
 print("-----------------------------------")
 
 
 qc = QuantumCircuit(1, 1)
-initial_vector = [0.+0.j, 1.+0.j]
+initial_vector = [1.+0.j, 0.+0.j]
 qc.initialize(initial_vector,0)
 
-#qc.x(0)
+qc.x(0)
 qc.h(0)
 qc.measure(0, 0)
 

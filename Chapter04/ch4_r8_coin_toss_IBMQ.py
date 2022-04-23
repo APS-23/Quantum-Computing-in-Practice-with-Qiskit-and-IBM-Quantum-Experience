@@ -9,7 +9,10 @@ Created Nov 2020
 from qiskit import QuantumCircuit, execute
 from qiskit import IBMQ
 from qiskit.tools.monitor import job_monitor
-from IPython.core.display import display
+from IPython.display import display
+
+import matplotlib
+matplotlib.use("Qt5Agg")
 
 print("Getting provider...")
 if not IBMQ.active_account():
@@ -25,7 +28,9 @@ qc.h(0)
 qc.cx(0,1)
 qc.measure([0,1],[0,1])
 
-display(qc.draw('mpl'))
+#display(qc.draw('mpl'))
+
+print(qc)
 
 from qiskit.providers.ibmq import least_busy
 backend = least_busy(provider.backends(n_qubits=5, operational=True, simulator=False))

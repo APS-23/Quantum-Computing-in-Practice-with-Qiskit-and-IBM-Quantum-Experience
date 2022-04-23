@@ -34,9 +34,9 @@ print("-------------------------------------")
 qc = QuantumCircuit(1, 1)
 
 get_psi(qc, title='Qubit in ground state |0>')
-qc.h(0)
+qc.ry(pi/2,0)
 get_psi(qc, title='Qubit in super position')
-qc.ry(pi/8,0)
+qc.ry(0.9*pi/2,0)
 get_psi(qc, title='Qubit pi/8 radians closer to |1>') 
 qc.measure(0, 0)
 

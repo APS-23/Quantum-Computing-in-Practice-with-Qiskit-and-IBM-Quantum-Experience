@@ -10,7 +10,10 @@ from qiskit import QuantumRegister, ClassicalRegister
 from qiskit import QuantumCircuit, Aer, execute
 from qiskit.tools.visualization import plot_histogram
 
-from IPython.core.display import display
+from IPython.display import display
+
+import matplotlib
+matplotlib.use("Qt5Agg")
 
 print("Ch 4: Quantum coin toss")
 print("-----------------------")

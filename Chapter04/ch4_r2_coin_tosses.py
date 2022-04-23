@@ -10,7 +10,10 @@ from qiskit import QuantumRegister, ClassicalRegister
 from qiskit import QuantumCircuit, Aer, execute
 from qiskit.tools.visualization import plot_histogram
 
-from IPython.core.display import display
+from IPython.display import display
+
+import matplotlib
+matplotlib.use("Qt5Agg")
 
 print("Ch 4: Quantum coin tosses")
 print("-------------------------")
@@ -21,10 +24,10 @@ qc = QuantumCircuit(q, c)
 
 qc.h(q[0])
 qc.measure(q, c)
-display(qc.draw('mpl'))
+#display(qc.draw('mpl'))
 
 backend = Aer.get_backend('qasm_simulator')
-job = execute(qc, backend, shots=1000)
+job = execute(qc, backend, shots=20000)
 result = job.result()
 counts = result.get_counts(qc)
 print(counts)
