@@ -22,12 +22,12 @@ provider = IBMQ.get_provider()
 available_backends = provider.backends(operational=True)
 
 # Fish out criteria to compare
-print("{0:20} {1:<10} {2:<10} {3:<10}".format("Name","#Qubits","Max exp.","Pending jobs"))
-print("{0:20} {1:<10} {2:<10} {3:<10}".format("----","-------","--------","------------"))
+print("{0:30} {1:<10} {2:<10} {3:<10}".format("Name","#Qubits","Max exp.","Pending jobs"))
+print("{0:30} {1:<10} {2:<10} {3:<10}".format("----","-------","--------","------------"))
 
 for n in range(0, len(available_backends)):
     backend = provider.get_backend(str(available_backends[n]))
-    print("{0:20} {1:<10} {2:<10} {3:<10}".format(backend.name(),backend.configuration().n_qubits,backend.configuration().max_experiments,backend.status().pending_jobs))
+    print("{0:30} {1:<10} {2:<10} {3:<10}".format(backend.name(),backend.configuration().n_qubits,backend.configuration().max_experiments,backend.status().pending_jobs))
 
 # Select the least busy backend with 5 qubits
 least_busy_backend = least_busy(provider.backends(n_qubits=5,operational=True, simulator=False))

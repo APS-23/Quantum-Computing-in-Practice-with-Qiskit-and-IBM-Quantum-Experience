@@ -14,7 +14,10 @@ from qiskit.providers.ibmq import least_busy
 # Import the backend visualization methods
 from qiskit.visualization import plot_gate_map, plot_error_map, plot_circuit_layout
 
-from IPython.core.display import display
+from IPython.display import display
+
+import matplotlib
+matplotlib.use("Qt5Agg")
 
 print("Ch 5: Backend visualization")
 print("---------------------------")
